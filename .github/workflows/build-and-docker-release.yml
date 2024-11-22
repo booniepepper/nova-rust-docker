@@ -1,0 +1,15 @@
+name: build-and-docker-publish
+
+on:
+  push:
+    branches: [core]
+  workflow_dispatch:
+
+jobs:
+  build-and-docker-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with: { username: booniepepper, password: '${{ secrets.DOCKER_PAT }}' }
+      - run: make release
