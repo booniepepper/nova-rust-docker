@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -eu
+
+echo "$@" >>temp.nv
+
+# stderr redirection and exits are temporary until I figure out how to handle
+# them in the Factor code for Discord. (Not trivial in Factor)
+if ! frontend --engine vera temp.nv 2>err.log
+then
+  cat err.log
+  exit 0
+fi
