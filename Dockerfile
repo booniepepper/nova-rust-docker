@@ -14,6 +14,7 @@ FROM alpine:latest as run
 
 COPY --from=build /opt/nova-rust/target/release/frontend /bin/
 COPY eval /bin/
+COPY eval-discord /bin/
 
 WORKDIR "tmp"
 CMD ["eval"]

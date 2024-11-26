@@ -8,6 +8,10 @@ build:
 test: build
 	docker run booniepepper/nova-rust:$(version) eval ":: dogs are blue :: spot is a dog"
 
+.PHONY: test-discord
+test-discord: build
+	docker run booniepepper/nova-rust:$(version) eval-discord ":: dogs are blue :: spot is a dog"
+
 .PHONY: release
 release: build test
 	docker push booniepepper/nova-rust:$(version)
