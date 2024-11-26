@@ -4,7 +4,7 @@ set -eu
 
 echo "$@" >>temp.nv
 
-frontend --engine vera temp.nv 2>err.log || {
+frontend temp.nv 2>err.log || {
   cat err.log
   exit 0
 }
