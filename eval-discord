@@ -11,4 +11,4 @@ doit() {
   }
 }
 
-timeout 3 -k doit || echo 'Response timed out (3 seconds)'
+timeout 3 -k doit || echo 'Response timed out. (Discord interaction limit is 3 seconds)'
