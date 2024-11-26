@@ -2,13 +2,4 @@
 
 set -eu
 
-echo "$@" >>temp.nv
-
-doit() {
-  frontend --engine vera temp.nv 2>err.log || {
-    cat err.log
-    exit 0
-  }
-}
-
-timeout 3 -k doit || echo 'Response timed out. (Discord interaction limit is 3 seconds)'
+timeout 3 /bin/eval "$@" || echo 'Response timed out. (Discord interaction limit is 3 seconds)'
